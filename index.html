@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ApexCalc • Professional Web Calculator</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Background Ambient Glow Orbs -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+
+  <main class="calculator-card">
+    
+    <!-- Top Utility Controls Bar -->
+    <header class="calc-top-bar">
+      <div class="brand">
+  <span class="brand-badge">v2.0</span>
+  <span class="brand-name">Equate<strong>Pro</strong></span>
+</div>
+
+      <div class="top-actions">
+        <!-- Sound Toggle -->
+        <button class="icon-btn" id="soundToggleBtn" title="Toggle Sound FX" aria-label="Toggle Sound">
+          <i class="fa-solid fa-volume-high"></i>
+        </button>
+        <!-- History Drawer Toggle -->
+        <button class="icon-btn" id="historyToggleBtn" title="View Calculation History" aria-label="View History">
+          <i class="fa-solid fa-clock-rotate-left"></i>
+        </button>
+        <!-- Dark / Light Theme Toggle -->
+        <button class="icon-btn" id="themeToggleBtn" title="Toggle Theme" aria-label="Toggle Theme">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- Calculation Screen Display -->
+    <section class="calc-screen">
+      <div class="screen-header">
+        <span class="memory-indicator" id="memoryIndicator">DEG</span>
+        <!-- Copy Result Button -->
+        <button class="copy-btn" id="copyResultBtn" title="Copy result to clipboard">
+          <i class="fa-regular fa-copy"></i>
+        </button>
+      </div>
+
+      <div class="display-lines">
+        <div class="previous-operand" id="previousOperand"></div>
+        <div class="current-operand" id="currentOperand">0</div>
+      </div>
+    </section>
+
+    <!-- Interactive Keypad -->
+    <section class="calc-keypad">
+      <!-- Row 1 -->
+      <button class="btn btn-action" data-action="all-clear" title="Clear (Esc)">AC</button>
+      <button class="btn btn-action" data-action="delete" title="Backspace">
+        <i class="fa-solid fa-delete-left"></i>
+      </button>
+      <button class="btn btn-action" data-action="percentage" title="Percent (%)">%</button>
+      <button class="btn btn-operator" data-operator="÷" title="Divide (/)">÷</button>
+
+      <!-- Row 2 -->
+      <button class="btn btn-number" data-number="7">7</button>
+      <button class="btn btn-number" data-number="8">8</button>
+      <button class="btn btn-number" data-number="9">9</button>
+      <button class="btn btn-operator" data-operator="×" title="Multiply (*)">×</button>
+
+      <!-- Row 3 -->
+      <button class="btn btn-number" data-number="4">4</button>
+      <button class="btn btn-number" data-number="5">5</button>
+      <button class="btn btn-number" data-number="6">6</button>
+      <button class="btn btn-operator" data-operator="-" title="Subtract (-)">−</button>
+
+      <!-- Row 4 -->
+      <button class="btn btn-number" data-number="1">1</button>
+      <button class="btn btn-number" data-number="2">2</button>
+      <button class="btn btn-number" data-number="3">3</button>
+      <button class="btn btn-operator" data-operator="+" title="Add (+)">+</button>
+
+      <!-- Row 5 -->
+      <button class="btn btn-action" data-action="negate" title="Toggle Sign (±)">±</button>
+      <button class="btn btn-number" data-number="0">0</button>
+      <button class="btn btn-number" data-number=".">.</button>
+      <button class="btn btn-equals" data-action="calculate" title="Calculate (Enter)">=</button>
+    </section>
+
+    <!-- Slide-in History Drawer Panel -->
+    <aside class="history-panel" id="historyPanel">
+      <div class="history-header">
+        <h3><i class="fa-solid fa-clock-rotate-left"></i> History</h3>
+        <div class="history-tools">
+          <button id="clearHistoryBtn" title="Clear all history">Clear</button>
+          <button id="closeHistoryBtn" title="Close"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+      </div>
+      <div class="history-list" id="historyList">
+        <p class="empty-history">No calculations yet</p>
+      </div>
+    </aside>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+      <i class="fa-solid fa-check"></i> <span id="toastMsg">Copied!</span>
+    </div>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
